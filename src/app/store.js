@@ -4,7 +4,7 @@ import { saveTodosToLocalStorage } from "../utils/localStorageHelpers";
 export const store = configureStore({
   reducer: toDoReducer,
 });
-
+console.log(store.getState());
 store.subscribe(() => {
-  saveTodosToLocalStorage({ todos: store.getState().todos });
+  saveTodosToLocalStorage({ todos: { todos: store.getState() } });
 });
