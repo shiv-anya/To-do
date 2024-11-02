@@ -3,6 +3,9 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 const initialState = {
   upcomingToDosCount: 0,
   todayToDosCount: 0,
+  previousToDoCount: 0,
+  personal: 0,
+  work: 0,
   priority: {
     high: 0,
     medium: 0,
@@ -26,13 +29,9 @@ export const toDoSlice = createSlice({
       }
     },
     updateToDo: (state, action) => {
-      console.log("hi");
       const { id, newTask } = action.payload;
       const task = state.todos.find((task) => task.id === id);
-      console.log(task);
-      console.log(id);
       if (task) {
-        console.log(newTask);
         Object.assign(task, newTask);
       }
     },

@@ -23,6 +23,17 @@ const ToDoEditForm = (props) => {
     tagRef.current.value = task.tag;
     setSubtasks(task.subtasks);
   }, []);
+  const updateSubtasks = (e) => {
+    e.preventDefault();
+    const task = {
+      id: new Date(),
+      title: subtaskRef.current.value,
+      isCompleted: false,
+    };
+    const newSubtasks = [...subtasks, task];
+    setSubtasks(newSubtasks);
+    subtaskRef.current.value = "";
+  };
   const updateTodoList = (e) => {
     e.preventDefault();
     const title = titleRef.current.value;
@@ -41,7 +52,7 @@ const ToDoEditForm = (props) => {
       isCompleted: false,
       id,
     };
-    console.log(id);
+
     dispatch(updateToDo({ id, newTask }));
     props.toggleForm();
   };
@@ -124,7 +135,7 @@ const ToDoEditForm = (props) => {
               maxLength={50}
             />
             <button onClick={(e) => e.preventDefault()}>
-              <IoAdd />
+              <IoAdd onClick={updateSubtasks} />
             </button>
           </div>
           <ul className="text-xs max-h-16 bg-gray-200 overflow-auto">

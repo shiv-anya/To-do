@@ -6,7 +6,47 @@ import {
   MdOutlineKeyboardDoubleArrowRight,
   MdOutlineToc,
 } from "react-icons/md";
-import { SlCalender } from "react-icons/sl";
+import { MdHome } from "react-icons/md";
+import MenuItem from "./MenuItem";
+
+const list = [
+  {
+    to: "/",
+    icon: <MdHome />,
+    title: "Home",
+    count: 8,
+  },
+  {
+    to: "/previous",
+    icon: <MdOutlineKeyboardDoubleArrowLeft />,
+    title: "Previous",
+    count: 8,
+  },
+  {
+    to: "/today",
+    icon: <MdOutlineToc />,
+    title: "Today",
+    count: 8,
+  },
+  {
+    to: "/upcoming",
+    icon: <MdOutlineKeyboardDoubleArrowRight />,
+    title: "Upcoming",
+    count: 8,
+  },
+  {
+    to: "/calendar",
+    icon: <CiCalendar />,
+    title: "Calendar",
+    count: 8,
+  },
+  {
+    to: "/notes",
+    icon: <CiStickyNote />,
+    title: "Sticky Notes",
+    count: 8,
+  },
+];
 
 const ToDoMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -36,39 +76,15 @@ const ToDoMenu = () => {
           </div>
           <div className="text-sm flex-col gap-2 my-5">
             <p className="text-xs mb-2 font-semibold">Tasks</p>
-            <div className="items-center hover:bg-gray-400 rounded-sm p-1 flex justify-between">
-              <div className="flex gap-2 justify-between items-center">
-                <MdOutlineKeyboardDoubleArrowLeft /> Previous
-              </div>
-              <div className="h-[12px] w-[12px] bg-gray-300 flex items-center justify-center p-2 rounded-lg text-xs">
-                8
-              </div>
-            </div>
-            <div className="hover:bg-gray-400 rounded-sm p-1 flex justify-between items-center">
-              <div className="flex gap-2 justify-between items-center">
-                <MdOutlineToc />
-                Today
-              </div>
-              <div className="h-[12px] w-[12px] bg-gray-300 flex items-center justify-center p-2 rounded-lg text-xs">
-                8
-              </div>
-            </div>
-            <div className="hover:bg-gray-400 rounded-sm p-1 flex justify-between items-center">
-              <div className="flex gap-2 justify-between items-center">
-                <MdOutlineKeyboardDoubleArrowRight /> Upcoming
-              </div>
-              <div className="h-[12px] w-[12px] bg-gray-300 flex items-center justify-center p-2 rounded-lg text-xs">
-                8
-              </div>
-            </div>
-            <div className="flex gap-2 items-center hover:bg-gray-400 rounded-sm p-1">
-              <CiCalendar />
-              Calender
-            </div>
-            <div className="flex gap-2 items-center hover:bg-gray-400 rounded-sm p-1">
-              <CiStickyNote />
-              Sticky Notes
-            </div>
+            {list.map((li) => (
+              <MenuItem
+                count={li.count}
+                icon={li.icon}
+                title={li.title}
+                to={li.to}
+                key={li.title}
+              />
+            ))}
           </div>
           <div className="text-sm flex-col gap-2 my-5">
             <p className="text-xs mb-2 font-semibold">Priority</p>

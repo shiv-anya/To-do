@@ -15,8 +15,8 @@ const ToDoForm = (props) => {
   const tagRef = useRef();
   const dueDateRef = useRef();
   const subtaskRef = useRef();
+  const defaultDate = new Date().toISOString().split("T")[0];
   useEffect(() => {
-    const defaultDate = new Date().toISOString().split("T")[0];
     dueDateRef.current.value = defaultDate;
   }, []);
   const addSubtasks = (e) => {

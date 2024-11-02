@@ -1,13 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import {
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import Layout from "./components/Layout";
+import Today from "./pages/Today";
+import AllTodos from "./pages/AllTodos";
+import Upcoming from "./pages/Upcoming";
+import Previous from "./pages/Previous";
+import Priority from "./pages/Priority";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route path="" element={<AllTodos />} />
+      <Route path="/today" element={<Today />} />
+      <Route path="upcoming" element={<Upcoming />} />
+      <Route path="previous" element={<Previous />} />
+      <Route path="priority/" element={<Priority />}>
+        <Route path="high" element={<Priority />} />
+        <Route path="medium" element={<Priority />} />
+        <Route path="low" element={<Priority />} />
+      </Route>
+    </Route>
+  )
+);
 root.render(
   <Provider store={store}>
-    <App />
+    <RouterProvider router={router} />
   </Provider>
 );

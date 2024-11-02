@@ -48,7 +48,7 @@ const ToDoItem = (props) => {
           onChange={handleCheckboxChange}
         />
         <div
-          className="flex items-center gap-2 justify-between w-full"
+          className="flex items-center gap-2 justify-between w-full cursor-pointer"
           onClick={showEditForm}
         >
           <label
