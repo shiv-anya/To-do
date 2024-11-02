@@ -1,22 +1,11 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { loadTodosFromLocalStorage } from "../utils/localStorageHelpers";
 
-const initialState = {
-  upcomingToDosCount: 0,
-  todayToDosCount: 0,
-  previousToDoCount: 0,
-  personal: 0,
-  work: 0,
-  priority: {
-    high: 0,
-    medium: 0,
-    low: 0,
-  },
-  todos: [],
-};
+const initialState = loadTodosFromLocalStorage();
 
 export const toDoSlice = createSlice({
   name: "todos",
-  initialState,
+  initialState: initialState.todos,
   reducers: {
     addToDo: (state, action) => {
       const todo = { ...action.payload, id: nanoid() };

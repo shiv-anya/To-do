@@ -8,48 +8,51 @@ import {
 } from "react-icons/md";
 import { MdHome } from "react-icons/md";
 import MenuItem from "./MenuItem";
-
-const list = [
-  {
-    to: "/",
-    icon: <MdHome />,
-    title: "Home",
-    count: 8,
-  },
-  {
-    to: "/previous",
-    icon: <MdOutlineKeyboardDoubleArrowLeft />,
-    title: "Previous",
-    count: 8,
-  },
-  {
-    to: "/today",
-    icon: <MdOutlineToc />,
-    title: "Today",
-    count: 8,
-  },
-  {
-    to: "/upcoming",
-    icon: <MdOutlineKeyboardDoubleArrowRight />,
-    title: "Upcoming",
-    count: 8,
-  },
-  {
-    to: "/calendar",
-    icon: <CiCalendar />,
-    title: "Calendar",
-    count: 8,
-  },
-  {
-    to: "/notes",
-    icon: <CiStickyNote />,
-    title: "Sticky Notes",
-    count: 8,
-  },
-];
+import { useSelector } from "react-redux";
 
 const ToDoMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const todos = useSelector((state) => state.todos);
+  const today = new Date().toISOString().split("T")[0];
+  const previousTodos = todos.filter((task) => task.dueDate < today);
+  const upcomingTodos = todos.filter((task) => task.dueDate > today);
+  const todayTodos = todos.filter((task) => task.dueDate === today);
+  const list = [
+    {
+      to: "/",
+      icon: <MdHome />,
+      title: "Home",
+      count: todos.length,
+    },
+    {
+      to: "/previous",
+      icon: <MdOutlineKeyboardDoubleArrowLeft />,
+      title: "Previous",
+      count: previousTodos.length,
+    },
+    {
+      to: "/today",
+      icon: <MdOutlineToc />,
+      title: "Today",
+      count: todayTodos.length,
+    },
+    {
+      to: "/upcoming",
+      icon: <MdOutlineKeyboardDoubleArrowRight />,
+      title: "Upcoming",
+      count: upcomingTodos.length,
+    },
+    {
+      to: "/calendar",
+      icon: <CiCalendar />,
+      title: "Calendar",
+    },
+    {
+      to: "/notes",
+      icon: <CiStickyNote />,
+      title: "Sticky Notes",
+    },
+  ];
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
