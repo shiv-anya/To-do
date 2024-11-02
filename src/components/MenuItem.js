@@ -15,9 +15,11 @@ const MenuItem = (props) => {
       <div className="flex gap-2 justify-between items-center">
         {props.icon} {props.title}
       </div>
-      <div className="h-[12px] w-[12px] bg-gray-300 flex items-center justify-center p-2 rounded-lg text-xs">
-        {props.count}
-      </div>
+      {!(props.title === "Calendar" || props.title === "Sticky Notes") && (
+        <div className="h-[12px] w-[12px] bg-gray-300 flex items-center justify-center p-2 rounded-lg text-xs">
+          {props.count}
+        </div>
+      )}
     </NavLink>
   );
 };
