@@ -9,6 +9,7 @@ import {
 import { MdHome } from "react-icons/md";
 import MenuItem from "./MenuItem";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 const ToDoMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -17,6 +18,9 @@ const ToDoMenu = () => {
   const previousTodos = todos.filter((task) => task.dueDate < today);
   const upcomingTodos = todos.filter((task) => task.dueDate > today);
   const todayTodos = todos.filter((task) => task.dueDate === today);
+  const highTodos = todos.filter((todo) => todo.priority === "High");
+  const mediumTodos = todos.filter((todo) => todo.priority === "Medium");
+  const lowTodos = todos.filter((todo) => todo.priority === "Low");
 
   const list = [
     {
@@ -85,30 +89,39 @@ const ToDoMenu = () => {
           </div>
           <div className="text-sm flex-col gap-2 my-5">
             <p className="text-xs mb-2 font-semibold">Priority</p>
-            <div className="hover:bg-gray-400 rounded-sm p-1 flex justify-between">
+            <NavLink
+              to="/priority/high"
+              className="hover:bg-gray-400 rounded-sm p-1 flex justify-between"
+            >
               <div className="flex gap-2 justify-between items-center">
                 <div className="bg-red-500 p-[6px] rounded-sm"></div> High
               </div>
               <div className="h-[12px] w-[12px] bg-gray-300 flex items-center justify-center p-2 rounded-lg text-xs">
-                8
+                {highTodos.length}
               </div>
-            </div>
-            <div className="hover:bg-gray-400 rounded-sm p-1 flex justify-between">
+            </NavLink>
+            <NavLink
+              to="/priority/medium"
+              className="hover:bg-gray-400 rounded-sm p-1 flex justify-between"
+            >
               <div className="flex gap-2 justify-between items-center">
                 <div className="bg-yellow-300 p-[6px] rounded-sm"></div> Medium
               </div>
               <div className="h-[12px] w-[12px] bg-gray-300 flex items-center justify-center p-2 rounded-lg text-xs">
-                8
+                {mediumTodos.length}
               </div>
-            </div>
-            <div className="hover:bg-gray-400 rounded-sm p-1 flex justify-between">
+            </NavLink>
+            <NavLink
+              to="/priority/low"
+              className="hover:bg-gray-400 rounded-sm p-1 flex justify-between"
+            >
               <div className="flex gap-2 justify-between items-center">
                 <div className="bg-green-500 p-[6px] rounded-sm"></div> Low
               </div>
               <div className="h-[12px] w-[12px] bg-gray-300 flex items-center justify-center p-2 rounded-lg text-xs">
-                8
+                {lowTodos.length}
               </div>
-            </div>
+            </NavLink>
           </div>
         </aside>
       )}
