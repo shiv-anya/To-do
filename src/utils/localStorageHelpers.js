@@ -1,12 +1,10 @@
 export const loadTodosFromLocalStorage = () => {
   try {
     const serializedState = localStorage.getItem("todosState");
-    return serializedState
-      ? JSON.parse(serializedState)
-      : { todos: { todos: [] } };
+    return serializedState ? JSON.parse(serializedState) : { todos: [] };
   } catch (error) {
     console.error("Could not load todos from localStorage:", error);
-    return { todos: { todos: [] } };
+    return { todos: [] };
   }
 };
 

@@ -2,7 +2,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { loadTodosFromLocalStorage } from "../utils/localStorageHelpers";
 
 const initialState = loadTodosFromLocalStorage();
-console.log(initialState);
+
 export const toDoSlice = createSlice({
   name: "todos",
   initialState: initialState,

@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
-import { CiCalendar, CiSearch, CiStickyNote } from "react-icons/ci";
+import { CiCalendar, CiStickyNote } from "react-icons/ci";
 import {
   MdOutlineKeyboardDoubleArrowLeft,
   MdOutlineKeyboardDoubleArrowRight,
@@ -13,21 +13,11 @@ import { useSelector } from "react-redux";
 const ToDoMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
   const todos = useSelector((state) => state.todos);
-  console.log(todos);
   const today = new Date().toISOString().split("T")[0];
   const previousTodos = todos.filter((task) => task.dueDate < today);
   const upcomingTodos = todos.filter((task) => task.dueDate > today);
   const todayTodos = todos.filter((task) => task.dueDate === today);
-  const [searchTerm, setSearchTerm] = useState(""); // Search input state
-  const [filteredTodos, setFilteredTodos] = useState([]); // Filtered todos state
-  // Update filteredTodos based on searchTerm every keystroke
-  useEffect(() => {
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
-    const filtered = todos.filter((todo) =>
-      todo.title.toLowerCase().includes(lowerCaseSearchTerm)
-    );
-    setFilteredTodos(filtered);
-  }, [searchTerm, todos]);
+
   const list = [
     {
       to: "/",
@@ -80,27 +70,7 @@ const ToDoMenu = () => {
             <p className="font-semibold text-lg">Menu</p>
             <RxCross1 onClick={toggleMenu} />
           </div>
-          <div className="flex-col rounded-lg border border-gray-400">
-            <div className="flex justify-between items-center font-semibold p-1 w-full relative">
-              <CiSearch />
-              <input
-                type="text"
-                placeholder="Search todos by title"
-                className="w-full outline-none bg-gray-200 text-sm pl-2 text-gray-400"
-                maxLength={50}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            <div className="w-full bg-red-400 relative">
-              <ul className="bg-white w-full absolute">
-                {searchTerm.trim() !== "" &&
-                  filteredTodos.map((todo) => (
-                    <li className="border-b border-black">{todo.title}</li>
-                  ))}
-              </ul>
-            </div>
-          </div>
+
           <div className="text-sm flex-col gap-2 my-5">
             <p className="text-xs mb-2 font-semibold">Tasks</p>
             {list.map((li) => (
