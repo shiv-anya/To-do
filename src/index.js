@@ -26,9 +26,9 @@ const router = createBrowserRouter(
       <Route path="upcoming" element={<Upcoming />} />
       <Route path="previous" element={<Previous />} />
       <Route path="priority/" element={<Priority />}>
-        <Route path="high" element={<Priority />} />
-        <Route path="medium" element={<Priority />} />
-        <Route path="low" element={<Priority />} />
+        <Route path=":priority" element={<Priority />} />
+        <Route path=":priority" element={<Priority />} />
+        <Route path=":priority" element={<Priority />} />
       </Route>
     </Route>
   )
