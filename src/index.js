@@ -17,6 +17,7 @@ import Upcoming from "./pages/Upcoming";
 import Previous from "./pages/Previous";
 import Priority from "./pages/Priority";
 import StickyNotes from "./pages/StickyNotes";
+import Calendar from "./pages/Calendar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter(
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
         <Route path=":priority" element={<Priority />} />
       </Route>
       <Route path="notes" element={<StickyNotes />} />
+      <Route path="calendar" element={<Calendar />} />
     </Route>
   )
 );
