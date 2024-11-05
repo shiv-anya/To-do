@@ -7,7 +7,7 @@ const PriorityWise = (props) => {
   const [task, setTask] = useState({});
   const [showEditForm, setShowEditForm] = useState(false);
   const title = props.title.toUpperCase();
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todos);
   const highTodos = todos.filter((todo) => todo.priority === "High");
   const mediumTodos = todos.filter((todo) => todo.priority === "Medium");
   const lowTodos = todos.filter((todo) => todo.priority === "Low");

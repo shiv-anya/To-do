@@ -18,7 +18,7 @@ const ToDoItem = (props) => {
     } else return "bg-green-600";
   };
   const task = useSelector((state) =>
-    state.todos.find((task) => task.id === props.task.id)
+    state.todos.todos.find((task) => task.id === props.task.id)
   );
   const sendTaskId = () => {
     props.getTask(task);

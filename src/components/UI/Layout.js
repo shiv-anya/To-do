@@ -1,5 +1,5 @@
 import React from "react";
-import ToDoMenu from "./ToDoMenu";
+import ToDoMenu from "../ToDoMenu";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {

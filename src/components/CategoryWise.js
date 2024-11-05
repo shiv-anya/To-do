@@ -12,7 +12,7 @@ const CategoryWise = (props) => {
   const [showEditForm, setShowEditForm] = useState(false);
   const title = props.title.toUpperCase();
   const today = new Date().toISOString().split("T")[0];
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todos);
   const [searchList, setSearchList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const todayTodos = todos.filter((todo) => todo.dueDate === today);

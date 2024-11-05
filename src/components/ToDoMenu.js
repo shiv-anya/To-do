@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 
 const ToDoMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todos);
   const today = new Date().toISOString().split("T")[0];
   const previousTodos = todos.filter((task) => task.dueDate < today);
   const upcomingTodos = todos.filter((task) => task.dueDate > today);
