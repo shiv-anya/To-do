@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Tick-it-off App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The **Tick-it-off App** is a productivity tool designed to help users manage their daily tasks efficiently. It features task creation, editing, filtering, and a calendar view for better organization.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Add, edit, and delete tasks.
+- Support for subtasks.
+- Filter tasks based on dates (e.g., today, this week, past tasks).
+- Interactive calendar view to visualize task deadlines.
+- Search tasks by title in real-time.
+- Persistent storage using browser's local storage.
+- Manage projects using simple, editable notes to jot down ideas and organize tasks visually.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (version >= 16.0.0)
+- npm or yarn
 
-### `npm test`
+### Steps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/shiv-anya/to-do.git
+   ```
+2. Navigate to the Project Directory
 
-### `npm run build`
+```bash
+cd todo-app
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the Development Server
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Adding Tasks**: Use the "Add Task" button to create a new task with a title, due date, and optional subtasks.
+- **Editing Tasks**: Click the edit icon next to a task to modify it.
+- **Filtering Tasks**: Navigate through tabs to see tasks for "Today," "This Week," and other categories.
+- **Calendar View**: Click on a date in the calendar to see tasks due on that day.
+- **Search**: Type in the search bar to filter tasks by title.
+- **Sticky Notes**:
+  - Use the "+" icon to create a new sticky note.
+  - Click on a pencil icon to edit its content.
+  - Use the cross icon to remove unwanted notes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Frontend**: React, Redux Toolkit, React Router
+- **Styling**: CSS Modules / TailwindCSS
+- **State Management**: Redux Toolkit
+- **Persistent Storage**: Browser's LocalStorage
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contributions are welcome! Here's how you can contribute:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Make your changes and commit them (`git commit -m 'Add feature'`).
+4. Push to your branch (`git push origin feature-name`).
+5. Open a pull request.
 
-### Code Splitting
+Feel free to open issues for any bug reports or feature requests!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Live Demo
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Check out the live demo: [Tick-it-off App](https://tick-it-off.vercel.app/)
