@@ -22,10 +22,11 @@ The **Tick-it-off App** is a productivity tool designed to help users manage the
 ### Steps
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/shiv-anya/to-do.git
-   ```
-2. Navigate to the Project Directory
+
+```bash
+git clone https://github.com/shiv-anya/to-do.git
+ ```
+3. Navigate to the Project Directory
 
 ```bash
 cd todo-app
