@@ -89,11 +89,13 @@ const TimeWise = (props) => {
     setTask(task);
   };
   return (
-    <div className="w-full px-5 text-gray-900 flex gap-5">
+    <div className="w-full px-5 text-gray-900 flex gap-5 max-md:p-0">
       <article className="w-full">
-        <div className="flex items-center mb-8">
-          <h1 className="text-5xl mr-8 font-semibold">{title}</h1>
-          <div className="text-3xl font-semibold border border-gray-300 p-2 rounded-sm">
+        <div className="flex items-center mb-8 max-md:mb-5">
+          <h1 className="text-5xl mr-8 font-semibold max-md:text-xl max-md:mr-2">
+            {title}
+          </h1>
+          <div className="text-3xl font-semibold border border-gray-300 p-2 rounded-sm max-md:text-lg max-md:p-1">
             {displayedTodos.length}
           </div>
         </div>
@@ -106,7 +108,7 @@ const TimeWise = (props) => {
               getTask={getTask}
             />
           </div>
-          <div className="h-1/2 flex gap-5">
+          <div className="h-1/2 flex gap-5 max-md:flex-col max-md:gap-1">
             <SeperateList
               title={title === "PREVIOUS" ? "LAST WEEK" : "NEXT WEEK"}
               list={title === "PREVIOUS" ? lastWeekTodos : nextWeekTodos}

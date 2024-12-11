@@ -18,7 +18,7 @@ const TodoCalendar = ({ todos }) => {
   };
 
   return (
-    <div className="flex gap-5 h-full items-center">
+    <div className="flex gap-5 h-full items-center max-md:flex-col max-md:items-start max-md:mt-10">
       <div>
         <Calendar
           onClickDay={handleDateClick}

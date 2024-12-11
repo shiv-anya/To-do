@@ -14,7 +14,7 @@ const SearchBar = (props) => {
     props.filterList(lowerCaseSearchTerm);
   }, [searchTerm, todos]);
   return (
-    <div className="w-1/3 flex-col rounded-lg border border-gray-400">
+    <div className="w-1/3 flex-col rounded-lg border border-gray-400 max-md:w-2/3">
       <div className="flex justify-between items-center font-semibold p-1 w-full relative">
         <CiSearch />
         <input

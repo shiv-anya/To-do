@@ -64,12 +64,12 @@ const ToDoMenu = () => {
   return (
     <Fragment>
       {!showMenu && (
-        <aside className="text-3xl text-gray-900 font-semibold border-r h-full pr-5 pt-5">
+        <aside className="text-3xl text-gray-900 font-semibold border-r max-md:h-auto h-full md:p-5 md:pl-0 max-md:flex justify-end">
           <RxHamburgerMenu onClick={toggleMenu} />
         </aside>
       )}
       {showMenu && (
-        <aside className="text-black w-1/3 bg-gray-200 h-full rounded-lg p-5">
+        <aside className="text-black w-1/3 bg-gray-200 h-full rounded-lg p-5 max-md:w-full max-md:fixed max-md:z-10 max-md:h-2/3">
           <div className="flex justify-between items-center mb-5">
             <p className="font-semibold text-lg">Menu</p>
             <RxCross1 onClick={toggleMenu} />

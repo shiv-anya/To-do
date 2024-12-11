@@ -63,7 +63,7 @@ const ToDoItem = (props) => {
       {showDetailsId === task.id && (
         <div className="flex-col text-xs pl-5 pt-2">
           <p className="w-4/5 overflow-y-scroll">{task.desc}</p>
-          <div className="flex gap-10 mt-2">
+          <div className="flex flex-row gap-10 mt-2 max-md:flex-col max-md:gap-2">
             <p className="flex gap-1 items-center">
               <SlCalender />
               {task.dueDate}

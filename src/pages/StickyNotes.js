@@ -28,12 +28,14 @@ const StickyNotes = () => {
     setNote({ title, id });
   };
   return (
-    <div className="w-full px-5 text-gray-900 flex gap-5">
+    <div className="w-full px-5 text-gray-900 flex gap-5 max-md:px-0">
       <article className="w-full">
         <div className="flex items-center pb-4 justify-between border-b border-gray-300">
           <div className="flex items-center">
-            <h1 className="text-5xl mr-8 font-semibold">Sticky Notes</h1>
-            <div className="text-3xl font-semibold border border-gray-300 p-2 rounded-sm">
+            <h1 className="text-5xl mr-8 font-semibold max-md:text-xl max-md:mr-2">
+              Sticky Notes
+            </h1>
+            <div className="text-3xl font-semibold border border-gray-300 p-2 rounded-sm max-md:text-lg max-md:p-1">
               {notes.length}
             </div>
           </div>
