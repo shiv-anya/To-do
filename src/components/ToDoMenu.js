@@ -69,7 +69,7 @@ const ToDoMenu = () => {
         </aside>
       )}
       {showMenu && (
-        <aside className="text-black w-1/3 bg-gray-200 h-full rounded-lg p-5 max-md:w-full max-md:fixed max-md:z-10 max-md:h-2/3">
+        <aside className="text-black w-1/3 bg-gray-200 h-full rounded-lg p-5 max-md:w-[88%] max-md:fixed max-md:z-10 max-md:h-2/3 max-md:mx-auto">
           <div className="flex justify-between items-center mb-5">
             <p className="font-semibold text-lg">Menu</p>
             <RxCross1 onClick={toggleMenu} />
@@ -79,6 +79,7 @@ const ToDoMenu = () => {
             <p className="text-xs mb-2 font-semibold">Tasks</p>
             {list.map((li) => (
               <MenuItem
+                toggleMenu={toggleMenu}
                 count={li.count}
                 icon={li.icon}
                 title={li.title}
@@ -92,6 +93,7 @@ const ToDoMenu = () => {
             <NavLink
               to="/priority/high"
               className="hover:bg-gray-400 rounded-sm p-1 flex justify-between"
+              onClick={toggleMenu}
             >
               <div className="flex gap-2 justify-between items-center">
                 <div className="bg-red-500 p-[6px] rounded-sm"></div> High
@@ -101,6 +103,7 @@ const ToDoMenu = () => {
               </div>
             </NavLink>
             <NavLink
+              onClick={toggleMenu}
               to="/priority/medium"
               className="hover:bg-gray-400 rounded-sm p-1 flex justify-between"
             >
@@ -112,6 +115,7 @@ const ToDoMenu = () => {
               </div>
             </NavLink>
             <NavLink
+              onClick={toggleMenu}
               to="/priority/low"
               className="hover:bg-gray-400 rounded-sm p-1 flex justify-between"
             >

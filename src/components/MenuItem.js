@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 const MenuItem = (props) => {
   return (
     <NavLink
+      onClick={props.toggleMenu}
       key={props.title}
       to={props.to}
       className={({ isActive }) =>
