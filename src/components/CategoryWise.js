@@ -1,10 +1,12 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { IoAdd } from "react-icons/io5";
 import ToDoForm from "./ToDoForm";
 import ToDoList from "./ToDoList";
 import ToDoEditForm from "./ToDoEditForm";
 import SearchBar from "./SearchBar";
+import { ResponsiveToDoForm } from "./ResponsiveToDoForm";
+import { ResponsiveToDoEditForm } from "./ResponsiveEditForm";
 
 const CategoryWise = (props) => {
   const [task, setTask] = useState({});
@@ -15,6 +17,17 @@ const CategoryWise = (props) => {
   const todos = useSelector((state) => state.todos.todos);
   const [searchList, setSearchList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    console.log(isMobile);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const todayTodos = todos.filter((todo) => todo.dueDate === today);
   const list = useMemo(() => {
     if (title === "TODAY") return todayTodos;
@@ -28,7 +41,7 @@ const CategoryWise = (props) => {
     setSearchList(tempLs);
   };
   const toggleForm = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setShowEditForm(false);
     setShowForm(!showForm);
   };
@@ -72,8 +85,18 @@ const CategoryWise = (props) => {
           getTask={getTask}
         />
       </article>
-      {showForm && <ToDoForm toggleForm={toggleForm} />}
-      {showEditForm && <ToDoEditForm toggleForm={toggleEditForm} task={task} />}
+      {showForm &&
+        (!isMobile ? (
+          <ToDoForm toggleForm={toggleForm} />
+        ) : (
+          <ResponsiveToDoForm onClose={toggleForm} />
+        ))}
+      {showEditForm &&
+        (!isMobile ? (
+          <ToDoEditForm toggleForm={toggleEditForm} task={task} />
+        ) : (
+          <ResponsiveToDoEditForm onClose={toggleEditForm} task={task} />
+        ))}
     </div>
   );
 };

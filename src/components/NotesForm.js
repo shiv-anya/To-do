@@ -22,7 +22,7 @@ const NotesForm = ({ closeModalHandler }) => {
         minLength={1}
         placeholder="Enter your note (max 150 chars and min 1 char)"
         required
-        className="outline-none w-full"
+        className="outline-none w-full bg-gray-200"
         ref={titleRef}
       />
       <button

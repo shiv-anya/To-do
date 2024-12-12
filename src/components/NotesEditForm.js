@@ -24,7 +24,7 @@ const NotesEditForm = ({ title, id, closeModalHandler }) => {
         maxLength={150}
         placeholder="Enter your note (max 150 chars and min 1)"
         required
-        className="outline-none w-full"
+        className="outline-none w-full bg-gray-200"
         ref={titleRef}
       />
       <button
